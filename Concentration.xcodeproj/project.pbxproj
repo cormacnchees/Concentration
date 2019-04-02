@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA6A177322455C13009EF9F3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6A177222455C13009EF9F3 /* Card.swift */; };
+		AA6A177522455DB6009EF9F3 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6A177422455DB6009EF9F3 /* Concentration.swift */; };
 		AAE119E9222DE6EC009E2C56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE119E8222DE6EC009E2C56 /* AppDelegate.swift */; };
 		AAE119EB222DE6EC009E2C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE119EA222DE6EC009E2C56 /* ViewController.swift */; };
 		AAE119EE222DE6EC009E2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE119EC222DE6EC009E2C56 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA6A177222455C13009EF9F3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Concentration/Card.swift; sourceTree = "<group>"; };
+		AA6A177422455DB6009EF9F3 /* Concentration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Concentration.swift; path = Concentration/Concentration.swift; sourceTree = "<group>"; };
 		AAE119E5222DE6EC009E2C56 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE119E8222DE6EC009E2C56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE119EA222DE6EC009E2C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		AAE119DC222DE6EC009E2C56 = {
 			isa = PBXGroup;
 			children = (
+				AA6A177422455DB6009EF9F3 /* Concentration.swift */,
+				AA6A177222455C13009EF9F3 /* Card.swift */,
 				AAE119E7222DE6EC009E2C56 /* Concentration */,
 				AAE119E6222DE6EC009E2C56 /* Products */,
 			);
@@ -54,14 +60,22 @@
 		AAE119E7222DE6EC009E2C56 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				AAE119E8222DE6EC009E2C56 /* AppDelegate.swift */,
 				AAE119EA222DE6EC009E2C56 /* ViewController.swift */,
 				AAE119EC222DE6EC009E2C56 /* Main.storyboard */,
-				AAE119EF222DE6F0009E2C56 /* Assets.xcassets */,
-				AAE119F1222DE6F0009E2C56 /* LaunchScreen.storyboard */,
+				AAE119FA222DE835009E2C56 /* Supporting Files */,
 				AAE119F4222DE6F0009E2C56 /* Info.plist */,
 			);
 			path = Concentration;
+			sourceTree = "<group>";
+		};
+		AAE119FA222DE835009E2C56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAE119E8222DE6EC009E2C56 /* AppDelegate.swift */,
+				AAE119EF222DE6F0009E2C56 /* Assets.xcassets */,
+				AAE119F1222DE6F0009E2C56 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE119EB222DE6EC009E2C56 /* ViewController.swift in Sources */,
+				AA6A177522455DB6009EF9F3 /* Concentration.swift in Sources */,
 				AAE119E9222DE6EC009E2C56 /* AppDelegate.swift in Sources */,
+				AA6A177322455C13009EF9F3 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +305,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cormachayden.concentration.Concentration;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cormachayden.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cormachayden.concentration.Concentration;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cormachayden.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
