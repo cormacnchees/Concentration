@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
     
     private lazy var game : Concentration = Concentration(numberOfPairsOfCards: numberOfPairsOfCards) //model
     
@@ -65,30 +65,41 @@ class ViewController: UIViewController {
     }
     
     private func updateViewFromModel() {
-        for index in cardButtons.indices { 
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            if card.isFaceUp { //For each faceup card
-                button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            } else {
-                button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ?  #colorLiteral(red: 0.9942671657, green: 0.4894910111, blue: 0.02981270223, alpha: 0) : #colorLiteral(red: 0, green: 0.5542243123, blue: 0.8053370714, alpha: 1) //If card is matched, set background clear, otherwise flip over (turn orange)
-                if card.isMatched { //Track to see if Game Over
-                    cardMatches += 1
+        if cardButtons != nil {
+            for index in cardButtons.indices {
+                let button = cardButtons[index]
+                let card = game.cards[index]
+                if card.isFaceUp { //For each faceup card
+                    button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                    button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                } else {
+                    button.setTitle("", for: UIControl.State.normal)
+                    button.backgroundColor = card.isMatched ?  #colorLiteral(red: 0.9942671657, green: 0.4894910111, blue: 0.02981270223, alpha: 0) : #colorLiteral(red: 0, green: 0.5542243123, blue: 0.8053370714, alpha: 1) //If card is matched, set background clear, otherwise flip over (turn orange)
+                    if card.isMatched { //Track to see if Game Over
+                        cardMatches += 1
+                    }
                 }
             }
         }
     }
     
-    private var emojiChoices = ["🌙", "🌊", "🌈", "🌸", "🌺", "🥝", "🏄🏼‍♂️", "🤙🏽", "🌴", "🍎", "🥥", "😁", "🕶", "🐬", "🙉"]
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? ""
+            emoji  = [:]
+            updateViewFromModel()
+        }
+    }
+    
+    private var emojiChoices = "🌙🌊🌈🌸🌺🥝🏄🏼‍♂️🤙🏽🌴🍎🥥😁🕶🐬🙉" //default theme
     
     private var emoji = [Card:String]()
     
     //places emoji on card when flipped up
     private func emoji(for card: Card) -> String { 
         if emoji[card] == nil, emojiChoices.count > 0 { //double if
-            emoji[card] = emojiChoices.remove(at: emojiChoices.count.arc4random) //returns emoji that is removed in order to avoid duplicate emojis
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            emoji[card] = String(emojiChoices.remove(at: randomStringIndex)) //returns emoji that is removed in order to avoid duplicate emojis
         }
     
         return emoji[card] ?? "?"
